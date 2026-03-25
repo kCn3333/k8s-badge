@@ -131,4 +131,4 @@ jobs:
         run: |
           helm package helm/k8s-badge
           helm push k8s-badge-${{ steps.version.outputs.VERSION }}.tgz \
-            oci://${{ env.REGISTRY }}/${{ env.OWNER }}/charts
+            oci://${{ env.REGISTRY }}/${{ env.OWNER }}/k8s-badge
