@@ -13,7 +13,7 @@ Two components deployed via Helm:
 | Component | Kind | Description |
 |---|---|---|
 | `k8s-badge-agent` | DaemonSet | Runs on every node, reads `/proc` and `/sys` — cpu%, ram%, temperature, load, uptime |
-| `k8s-badge-api` | Deployment ×1 | Merges agent data with k8s API + metrics-server, renders SVG and JSON |
+| `k8s-badge-api` | Deployment | Merges agent data with k8s API + metrics-server, renders SVG and JSON |
 
 The API discovers agents dynamically — lists DaemonSet pods by label and calls each pod IP. No static addresses needed.
 
