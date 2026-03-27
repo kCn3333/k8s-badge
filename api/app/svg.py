@@ -160,7 +160,8 @@ def render_cluster_badge(metrics: dict) -> str:
   <text x="412" y="28" fill="{TEXT_DIM}" font-size="13">·</text>
   <text x="424" y="28" fill="{TEXT_MID}" font-size="12">{total_ram_gb} GB</text>
   <!-- Łączna liczba podów wyrównana do kolumny pods (X_PODS={X_PODS}) -->
-  <text x="{X_PODS}" y="28" fill="{TEXT_BRIGHT}" font-size="13" font-weight="bold" text-anchor="middle">{cluster['total_pods']}</text>
+  <text x="{X_PODS - 14}" y="28" fill="{TEXT_DIM}" font-size="11" text-anchor="end">pods</text>
+  <text x="{X_PODS}" y="28" fill="{TEXT_BRIGHT}" font-size="13" font-weight="bold" text-anchor="middle">{cluster['total_pods']} </text>
 
   <!-- Linia pod headerem — nagłówki kolumn usuniete (etykiety CPU/RAM/TEMP sa w kazdym wierszu) -->
   <line x1="8" y1="{HEADER_H - 1}" x2="{W - 8}" y2="{HEADER_H - 1}" stroke="{SEPARATOR}" stroke-width="1"/>
@@ -228,6 +229,7 @@ def render_node_badge(node: dict) -> str:
   <text x="{X_PCT}" y="57" fill="{_color(cpu['percent'], WARN_CPU, CRIT_CPU)}" font-size="12">{_fmt(cpu['percent'])}</text>
   <text x="{X_INFO}" y="57" fill="{TEXT_DIM}" font-size="11">{cpu.get('used_cores', '?')} / {cpu['capacity_cores']} cores</text>
   <text x="{X_SIDE}" y="57" fill="{TEXT_DIM}" font-size="11">pods</text>
+  <text x="{X_SIDE - 10}" y="{cy + 4}" fill="{TEXT_DIM}" font-size="10" text-anchor="end">pods</text>
   <text x="{X_SIDE + 40}" y="57" fill="{TEXT_BRIGHT}" font-size="12" font-weight="bold">{pods['running']}</text>
 
   <!-- RAM -->
